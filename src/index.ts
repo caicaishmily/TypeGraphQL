@@ -1,8 +1,9 @@
+import "reflect-metadata"
 import { ApolloServer } from "apollo-server-express"
 import * as Express from "express"
-import "reflect-metadata"
 import { buildSchema } from "type-graphql"
 import { createConnection } from "typeorm"
+
 import { RegisterResolver } from "./modules/user/Register"
 
 const main = async () => {
@@ -19,7 +20,7 @@ const main = async () => {
   apolloServer.applyMiddleware({ app })
 
   app.listen(9527, () => {
-    console.log("server started on http://localhost:9527")
+    console.log("server started on http://localhost:9527/graphql")
   })
 }
 
