@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm"
-import { ObjectType, Field, ID } from "type-graphql"
+import { ObjectType, Field, ID, Root } from "type-graphql"
 
 @ObjectType()
 @Entity()
@@ -17,11 +17,13 @@ export class User extends BaseEntity {
   lastName: string
 
   @Field()
-  @Column("text", { unique: true })
-  email: string
+  name(@Root() parent: User): string {
+    return `${parent.firstName} ${parent.lastName}`
+  }
 
   @Field()
-  name: string
+  @Column("text", { unique: true })
+  email: string
 
   @Column()
   password: string
