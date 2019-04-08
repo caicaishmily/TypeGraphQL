@@ -4,17 +4,19 @@ import Express from "express"
 import { buildSchema, formatArgumentValidationError } from "type-graphql"
 import { createConnection } from "typeorm"
 
-import { RegisterResolver } from "./modules/user/Register"
 import { redis } from "./redis"
 import cors from "cors"
 import connectRedis from "connect-redis"
 import session from "express-session"
 
+import { RegisterResolver } from "./modules/user/Register"
+import { LoginResolver } from "./modules/user/Login"
+
 const main = async () => {
   await createConnection()
 
   const schema = await buildSchema({
-    resolvers: [RegisterResolver]
+    resolvers: [LoginResolver, RegisterResolver]
   })
 
   const apolloServer = new ApolloServer({
