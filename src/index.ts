@@ -11,12 +11,13 @@ import session from "express-session"
 
 import { RegisterResolver } from "./modules/user/Register"
 import { LoginResolver } from "./modules/user/Login"
+import { CurrentUserResolver } from "./modules/user/CurrentUser"
 
 const main = async () => {
   await createConnection()
 
   const schema = await buildSchema({
-    resolvers: [LoginResolver, RegisterResolver]
+    resolvers: [CurrentUserResolver, LoginResolver, RegisterResolver]
   })
 
   const apolloServer = new ApolloServer({
