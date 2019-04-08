@@ -22,7 +22,8 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema,
-    formatError: formatArgumentValidationError
+    formatError: formatArgumentValidationError,
+    context: ({ req }: any) => ({ req })
   })
 
   const app = Express()
