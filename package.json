@@ -36,7 +36,7 @@
     "@types/node": "^10.12.18",
     "@types/nodemailer": "^4.6.8",
     "@types/uuid": "^3.4.4",
-    "nodemon": "^1.18.9",
+    "nodemon": "^1.19.0",
     "ts-node": "^7.0.1",
     "ts-node-dev": "^1.0.0-pre.32",
     "typescript": "^3.2.2"
