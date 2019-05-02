@@ -1,7 +1,7 @@
 import { Mutation, Arg } from "type-graphql"
-import { User } from "src/entity/User"
+import { User } from "../../entity/User"
 import { v4 } from "uuid"
-import { redis } from "src/redis"
+import { redis } from "../../redis"
 import { sendMail } from "../utils/sendEmail"
 
 export class ChangePasswordResolver {
