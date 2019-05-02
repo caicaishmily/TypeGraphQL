@@ -1,30 +1,36 @@
 import { Mutation, Arg } from "type-graphql"
+import bcrypt from "bcryptjs"
+
 import { User } from "../../entity/User"
-import { v4 } from "uuid"
 import { redis } from "../../redis"
-import { sendMail } from "../utils/sendEmail"
+import { ChangePasswordInput } from "./changePassword/ChangePasswordInput";
+import { forgotPasswordPrefix } from "../constant/redisPrefixes";
 
 export class ChangePasswordResolver {
 
-  @Mutation(() => Boolean)
+  @Mutation(() => User, {nullable: true})
   async changePassword(
-    @Arg("email") email: string
-  ): Promise<boolean> {
-    const user = await User.findOne({ where: { email }})
+    @Arg("data") {token, password}: ChangePasswordInput
+  ): Promise<User | null> {
+    const userId = await redis.get(forgotPasswordPrefix + token)
 
-    if(!user) {
-      return true
+    if (!userId) {
+      return null
     }
-    const token = v4()
 
-    await redis.set(token, user.id, "ex", 60 * 60 * 24)
+    const user = await  User.findOne(userId)
 
-    await sendMail(
-      email,
-      `http://localhost:3000/user/confirm/${token}`
-    )
+    if (!user) {
+      return null
+    }
 
-    return true
+    await redis.del(forgotPasswordPrefix + token)
+
+    user.password = await bcrypt.hash(password, 12)
+
+    await user.save()
+
+    return user
 
   }
 }
