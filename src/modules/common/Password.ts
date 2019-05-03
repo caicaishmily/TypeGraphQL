@@ -1,9 +1,9 @@
 import { InputType, Field } from "type-graphql"
-import { Min } from "class-validator"
+import { MinLength } from "class-validator"
 
 @InputType()
 export class PasswordInput {
   @Field()
-  @Min(6)
+  @MinLength(6)
   password: string
 }
