@@ -34,7 +34,7 @@
     "@types/graphql": "^14.0.4",
     "@types/ioredis": "^4.0.10",
     "@types/node": "^10.12.18",
-    "@types/nodemailer": "^4.6.8",
+    "@types/nodemailer": "^6.2.0",
     "@types/uuid": "^3.4.4",
     "nodemon": "^1.18.9",
     "ts-node": "^7.0.1",
