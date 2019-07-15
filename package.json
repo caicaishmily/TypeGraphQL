@@ -6,7 +6,9 @@
   "author": "davechai <davecqx@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --respawn src/index.ts"
+    "start": "ts-node-dev --respawn src/index.ts",
+    "db:setup": "ts-node ./src/test/setup.ts",
+    "test": "npm run db:setup && jest"
   },
   "dependencies": {
     "apollo-server-express": "^2.3.1",
