@@ -11,7 +11,7 @@
     "test": "npm run db:setup && jest"
   },
   "dependencies": {
-    "apollo-server-express": "^2.6.9",
+    "apollo-server-express": "^2.9.0",
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.9.1",
     "connect-redis": "^3.4.1",
