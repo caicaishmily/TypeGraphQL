@@ -5256,10 +5256,10 @@ ts-jest@^24.0.2:
     semver "^5.5"
     yargs-parser "10.x"
 
-ts-node-dev@^1.0.0-pre.32:
-  version "1.0.0-pre.40"
-  resolved "https://registry.yarnpkg.com/ts-node-dev/-/ts-node-dev-1.0.0-pre.40.tgz#a3a93a6c87993cba8c70c4c92b67d874694b38db"
-  integrity sha512-78CptStf6oA5wKkRXQPEMBR5zowhnw2bvCETRMhkz2DsuussA56s6lKgUX4EiMMiPkyYdSm8jkJ875j4eo4nkQ==
+ts-node-dev@^1.0.0-pre.43:
+  version "1.0.0-pre.43"
+  resolved "https://registry.yarnpkg.com/ts-node-dev/-/ts-node-dev-1.0.0-pre.43.tgz#9084775060c0a4c0568e1670b249eabd0d4260d5"
+  integrity sha512-vtFeqKNMcRdE0R00RZRMM2v7V6HadJSllJ7o1PPUc797cTyKLW2k4UsdbNaxoDEQ9PU2HIc2M+SawgM6ONh4ig==
   dependencies:
     dateformat "~1.0.4-1.2.3"
     dynamic-dedupe "^0.3.0"
